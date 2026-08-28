@@ -13,8 +13,7 @@ export default function Contact() {
     { k: 'Correo', v: config.email },
     { k: 'Teléfono', v: config.phone },
     { k: 'Taller', v: config.address },
-    { k: 'Horario', v: config.hours },
-]
+  ]
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -36,12 +35,30 @@ export default function Contact() {
             <p className="lede">
               ¿Dudas sobre una prenda, un pedido o una colaboración? Escríbenos, respondemos en menos de 24 horas.
             </p>
+
             {rows.map((r) => (
               <div className="info-row" key={r.k}>
                 <span className="k">{r.k}</span>
                 <span className="v">{r.v}</span>
               </div>
             ))}
+
+            <div className="info-row">
+              <span className="k">Instagram</span>
+              <a
+                className="v insta-link"
+                href={`https://instagram.com/${config.instagram}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
+                </svg>
+                @{config.instagram}
+              </a>
+            </div>
           </div>
 
           <form onSubmit={handleSubmit}>

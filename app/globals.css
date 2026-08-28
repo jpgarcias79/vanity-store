@@ -759,3 +759,18 @@
   .wa-float{right:16px;bottom:16px;width:54px;height:54px;}
   .wa-label{display:none;}
 }
+/* ---------- Instagram en contacto ---------- */
+.insta-link{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  transition:color .3s var(--ease), transform .3s var(--ease);
+}
+.insta-link svg{
+  width:18px;height:18px;
+  flex-shrink:0;
+}
+.insta-link:hover{
+  color:var(--crimson);
+  transform:translateX(3px);
+}

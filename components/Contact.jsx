@@ -12,7 +12,6 @@ export default function Contact() {
   const rows = [
     { k: 'Correo', v: config.email },
     { k: 'Teléfono', v: config.phone },
-    { k: 'Taller', v: config.address },
   ]
 
   const handleSubmit = (e) => {

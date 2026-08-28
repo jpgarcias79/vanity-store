@@ -682,3 +682,25 @@
 .product-card:hover .product-media img{
   transform:scale(1.06);
 }
+/* ---------- ajustes mobile ---------- */
+@media (max-width:980px){
+  .hero{padding-top:118px;}
+  .hero-grid{gap:30px;}
+  .hero-media{
+    order:-1;
+    width:100%;
+    max-width:560px;
+    aspect-ratio:4/3.2;   /* marco más horizontal: las 3 fotos se ven casi completas */
+    margin:0 auto;
+  }
+  .hero-stats{gap:22px;flex-wrap:wrap;}
+}
+
+@media (max-width:640px){
+  .hero{padding-top:100px;}
+  .hero-copy h1{font-size:clamp(38px,11vw,54px);}
+  .hero-media{aspect-ratio:4/3.4;}
+  .hero-cta .btn{padding:14px 22px;font-size:12px;}
+  .ribbon-wrap{height:52px;margin-top:56px;}
+  .ribbon{height:52px;}
+}

@@ -1,8 +1,9 @@
 'use client'
-import { track } from '@/lib/analytics'
+
 import { useState } from 'react'
 import { useCart } from './CartContext'
 import { config } from '@/lib/config'
+import { track } from '@/lib/analytics'
 
 export default function CartModal() {
   const { items, changeQty, removeFromCart, subtotal, isOpen, setIsOpen } = useCart()
@@ -27,6 +28,9 @@ export default function CartModal() {
     }
 
     setError(false)
+    // 🔥 Evento de analytics antes de abrir WhatsApp
+    track('checkout_whatsapp', { subtotal, itemCount: items.length })
+
     const message = encodeURIComponent(
       `Hola VANITYSHOP 👋 Soy ${name.trim()} y quiero finalizar este pedido:\n` +
         items.map((i) => `• ${i.name} x${i.qty} — $${i.price * i.qty}`).join('\n') +
@@ -95,7 +99,6 @@ export default function CartModal() {
 
           <button
             className="btn btn-primary"
-            onClick={() => track('checkout_whatsapp', { subtotal })}
             onClick={handleCheckout}
             style={items.length === 0 ? { opacity: 0.5, pointerEvents: 'none' } : undefined}
           >

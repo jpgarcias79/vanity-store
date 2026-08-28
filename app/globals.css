@@ -774,3 +774,20 @@
   color:var(--crimson);
   transform:translateX(3px);
 }
+/* ---------- sección Instagram ---------- */
+.insta{padding:60px 0 130px;}
+.insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.insta-card{position:relative;aspect-ratio:1/1;border-radius:8px;overflow:hidden;display:block;}
+.insta-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
+.insta-card:hover img{transform:scale(1.07);}
+.insta-overlay{
+  position:absolute;inset:0;
+  background:rgba(113,31,52,0.55);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  color:var(--bone);
+  font-family:'Space Mono',monospace;font-size:14px;
+  opacity:0;transition:opacity .35s var(--ease);
+}
+.insta-card:hover .insta-overlay{opacity:1;}
+.insta-overlay svg{width:20px;height:20px;fill:var(--rose);}
+@media (max-width:640px){.insta-grid{gap:8px;}}

@@ -1,5 +1,5 @@
 'use client'
-
+import { track } from '@/lib/analytics'
 import { createContext, useContext, useState, useRef } from 'react'
 
 const CartContext = createContext()
@@ -25,6 +25,7 @@ export function CartProvider({ children }) {
       return [...prev, { ...product, qty: 1 }]
     })
     showToast(`${product.name} añadido al carrito`)
+    track('add_to_cart', { item: product.name, price: product.price })
   }
 
   const changeQty = (id, delta) => {

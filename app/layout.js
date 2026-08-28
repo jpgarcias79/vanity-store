@@ -2,6 +2,7 @@ import './globals.css'
 import { CartProvider } from '@/components/CartContext'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
 import ChatBot from '@/components/ChatBot'
+import Script from 'next/script'
 
 export const metadata = {
   metadataBase: new URL('https://vanity-store.vercel.app'),
@@ -48,6 +49,15 @@ export default function RootLayout({ children }) {
         <CartProvider>{children}<ChatBot /></CartProvider>
         <WhatsAppFloat />
       </body>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-WV87LJQQXW" strategy="afterInteractive" />
+<Script id="ga4-init" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WV87LJQQXW');
+  `}
+</Script>
     </html>
   )
 }

@@ -1,5 +1,5 @@
 'use client'
-
+import { track } from '@/lib/analytics'
 import { useEffect, useRef, useState } from 'react'
 import { useCart } from './CartContext'
 
@@ -40,7 +40,7 @@ export default function ChatBot() {
   }
 
   const goToProduct = (p) => {
-    setOpen(false)
+    setOpen(false)track('chat_spotlight', { item: p.name })
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent('spotlight-product', { detail: p.id }))
     }, 150)

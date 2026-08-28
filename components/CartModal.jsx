@@ -1,5 +1,5 @@
 'use client'
-
+import { track } from '@/lib/analytics'
 import { useState } from 'react'
 import { useCart } from './CartContext'
 import { config } from '@/lib/config'
@@ -94,7 +94,7 @@ export default function CartModal() {
           </div>
 
           <button
-            className="btn btn-primary"
+            className="btn btn-primary"onClick={() => track('checkout_whatsapp', { subtotal })}
             onClick={handleCheckout}
             style={items.length === 0 ? { opacity: 0.5, pointerEvents: 'none' } : undefined}
           >

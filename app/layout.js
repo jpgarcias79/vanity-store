@@ -1,5 +1,6 @@
 import './globals.css'
 import { CartProvider } from '@/components/CartContext'
+import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 export const metadata = {
   title: 'VANITYSHOP — Prendas con carácter, hechas para quedarse',
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <CartProvider>{children}</CartProvider>
+        <WhatsAppFloat />
       </body>
     </html>
   )

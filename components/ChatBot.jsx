@@ -40,7 +40,8 @@ export default function ChatBot() {
   }
 
   const goToProduct = (p) => {
-    setOpen(false)track('chat_spotlight', { item: p.name })
+    setOpen(false)
+    track('chat_spotlight', { item: p.name })
     setTimeout(() => {
       window.dispatchEvent(new CustomEvent('spotlight-product', { detail: p.id }))
     }, 150)

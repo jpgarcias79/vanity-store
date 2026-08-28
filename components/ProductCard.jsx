@@ -6,7 +6,7 @@ export default function ProductCard({ product }) {
   const { addToCart } = useCart()
 
   return (
-    <article className="product-card">
+    <article className="product-card" id={`producto-${product.id}`}>
       <div className="product-media">
         {product.image ? (
           <img src={product.image} alt={product.name} />

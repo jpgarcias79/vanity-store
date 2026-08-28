@@ -39,9 +39,17 @@ export default function ChatBot() {
     setLoading(false)
   }
 
+  const goToProduct = (p) => {
+    setOpen(false)
+    setTimeout(() => {
+      window.dispatchEvent(new CustomEvent('spotlight-product', { detail: p.id }))
+    }, 150)
+  }
+
   return (
     <>
       <button className="chat-float" onClick={() => setOpen(!open)} aria-label="Abrir asistente">
+        <span className="chat-pulse" />
         {open ? (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 18L18 6M6 6l12 12" /></svg>
         ) : (
@@ -69,7 +77,9 @@ export default function ChatBot() {
                 {m.picks?.map((p) => (
                   <div className="pick" key={p.id}>
                     <div>
-                      <h5>{p.name}</h5>
+                      <button className="pick-name" onClick={() => goToProduct(p)}>
+                        {p.name} ↗
+                      </button>
                       <span className="price">${p.price}</span>
                     </div>
                     <button onClick={() => addToCart(p)}>Añadir</button>

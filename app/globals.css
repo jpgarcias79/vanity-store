@@ -817,3 +817,86 @@
 .chat-input input{flex:1;border:1px solid var(--line);border-radius:100px;padding:10px 16px;font-size:13px;background:#fff;outline:none;}
 .chat-input input:focus{border-color:var(--crimson);}
 .chat-input button{width:42px;height:42px;border-radius:50%;background:var(--crimson);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+/* ---------- botones gemelos + carrito grande + destello ---------- */
+.chat-float:hover{transform:translateY(-4px) scale(1.05);}
+.chat-float svg{position:relative;z-index:2;}
+.chat-pulse{
+  position:absolute;inset:0;border-radius:50%;
+  background:rgba(198,42,72,0.45);
+  animation:chatpulse 2.2s var(--ease) infinite;
+  z-index:1;
+}
+@keyframes chatpulse{
+  0%{transform:scale(1);opacity:.6;}
+  100%{transform:scale(1.7);opacity:0;}
+}
+
+.cart-btn{width:46px;height:46px;}
+.cart-btn svg{width:24px;height:24px;}
+.cart-wrap{position:relative;display:flex;align-items:center;}
+.cart-btn.flash{animation:cartflash .45s var(--ease) 3;}
+@keyframes cartflash{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(198,42,72,0);}
+  50%{transform:scale(1.15);box-shadow:0 0 0 12px rgba(198,42,72,0.22);}
+}
+.cart-toast{
+  position:absolute;
+  top:50%;
+  right:calc(100% + 12px);
+  transform:translateY(-50%);
+  background:var(--ink);
+  color:var(--bone);
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  letter-spacing:.05em;
+  padding:8px 14px;
+  border-radius:100px;
+  white-space:nowrap;
+  box-shadow:var(--shadow);
+  animation:toastin .35s var(--ease);
+}
+@keyframes toastin{
+  from{opacity:0;transform:translateY(-50%) translateX(8px);}
+  to{opacity:1;transform:translateY(-50%) translateX(0);}
+}
+/* ---------- carrito activo persistente ---------- */
+.cart-btn.active{
+  border-color:var(--crimson);
+  color:var(--crimson);
+}
+.cart-btn.active::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:50%;
+  animation:cartping 1.8s var(--ease) infinite;
+  pointer-events:none;
+}
+@keyframes cartping{
+  0%{box-shadow:0 0 0 0 rgba(198,42,72,0.4);}
+  100%{box-shadow:0 0 0 12px rgba(198,42,72,0);}
+}
+@media (max-width:640px){
+  .cart-toast{font-size:9px;padding:6px 10px;right:calc(100% + 8px);}
+}
+/* ---------- spotlight: del chat al producto ---------- */
+.pick-name{
+  display:inline-block;
+  margin:0 0 2px;
+  font-size:12.5px;
+  font-weight:700;
+  color:var(--ink);
+  text-align:left;
+  text-decoration:underline;
+  text-decoration-color:var(--rose);
+  text-underline-offset:3px;
+  transition:color .3s;
+}
+.pick-name:hover{color:var(--crimson);}
+.product-card.spotlight .product-media{
+  animation:spotpulse 1.2s var(--ease) 2;
+}
+@keyframes spotpulse{
+  0%,100%{box-shadow:0 0 0 3px var(--crimson);}
+  50%{box-shadow:0 0 0 12px rgba(198,42,72,0.25);}
+}

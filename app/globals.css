@@ -900,3 +900,18 @@
   0%,100%{box-shadow:0 0 0 3px var(--crimson);}
   50%{box-shadow:0 0 0 12px rgba(198,42,72,0.25);}
 }
+/* ---------- refuerzo visual (visible con o sin animaciones) ---------- */
+.chat-float{
+  box-shadow:0 0 0 5px rgba(198,42,72,0.22), 0 12px 30px rgba(74,17,30,0.35);
+}
+.product-card.spotlight{
+  transform:scale(1.03);
+}
+.product-card.spotlight .product-media{
+  box-shadow:0 0 0 4px var(--crimson), 0 16px 40px rgba(198,42,72,0.35);
+}
+.product-card.spotlight .tag{
+  transform:rotate(0deg) scale(1.1);
+  background:var(--crimson);
+  color:var(--bone);
+}

@@ -1,6 +1,7 @@
 import './globals.css'
 import { CartProvider } from '@/components/CartContext'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
+import ChatBot from '@/components/ChatBot'
 
 export const metadata = {
   metadataBase: new URL('https://vanity-store.vercel.app'),
@@ -44,7 +45,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <CartProvider>{children}</CartProvider>
+        <CartProvider>{children}<ChatBot /></CartProvider>
         <WhatsAppFloat />
       </body>
     </html>
